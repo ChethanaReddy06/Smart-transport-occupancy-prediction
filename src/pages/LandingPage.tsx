@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { BarChart3, Bus, Clock, ArrowRight, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 import heroImg from "@/assets/hero-transport.jpg";
 
 const features = [
