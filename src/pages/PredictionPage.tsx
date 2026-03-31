@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Bus, Train, Loader2, MapPin } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -56,6 +58,14 @@ const PredictionPage = () => {
       }
       setResult({ level, percentage: pct, suggestion });
       setLoading(false);
+
+      if (level === "low") {
+        toast.success("Low Occupancy — Great time to travel!", { description: suggestion });
+      } else if (level === "medium") {
+        toast.warning("Medium Occupancy — Moderate crowd expected", { description: suggestion });
+      } else {
+        toast.error("High Occupancy — Consider an alternative", { description: suggestion });
+      }
     }, 1800);
   };
 
@@ -69,12 +79,13 @@ const PredictionPage = () => {
           <Button variant="ghost" size="icon" onClick={() => navigate("/select")}>
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-1">
             <Icon className="w-5 h-5 text-primary" />
             <h1 className="font-display font-bold text-lg text-foreground">
               {isBus ? "Bus" : "Train"} Occupancy Prediction
             </h1>
           </div>
+          <ThemeToggle />
         </div>
       </header>
 

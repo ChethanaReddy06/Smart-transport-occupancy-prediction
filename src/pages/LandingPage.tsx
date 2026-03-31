@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { BarChart3, Bus, Clock, ArrowRight, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 import heroImg from "@/assets/hero-transport.jpg";
 
 const features = [
@@ -45,12 +46,15 @@ const LandingPage = () => {
             </div>
             <span className="font-display font-bold text-lg text-foreground">TransitAI</span>
           </div>
-          <Button
-            onClick={() => navigate("/select")}
-            className="gradient-primary border-0 text-primary-foreground hover:opacity-90 transition-opacity"
-          >
-            Get Started
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button
+              onClick={() => navigate("/select")}
+              className="gradient-primary border-0 text-primary-foreground hover:opacity-90 transition-opacity"
+            >
+              Get Started
+            </Button>
+          </div>
         </div>
       </header>
 
