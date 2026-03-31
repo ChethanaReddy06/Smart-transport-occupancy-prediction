@@ -58,6 +58,14 @@ const PredictionPage = () => {
       }
       setResult({ level, percentage: pct, suggestion });
       setLoading(false);
+
+      if (level === "low") {
+        toast.success("Low Occupancy — Great time to travel!", { description: suggestion });
+      } else if (level === "medium") {
+        toast.warning("Medium Occupancy — Moderate crowd expected", { description: suggestion });
+      } else {
+        toast.error("High Occupancy — Consider an alternative", { description: suggestion });
+      }
     }, 1800);
   };
 

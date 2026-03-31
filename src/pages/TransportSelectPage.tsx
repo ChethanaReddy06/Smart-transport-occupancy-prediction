@@ -32,9 +32,10 @@ const TransportSelectPage = () => {
           <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="font-display font-bold text-lg text-foreground">
+          <h1 className="font-display font-bold text-lg text-foreground flex-1">
             Select Transport Type
           </h1>
+          <ThemeToggle />
         </div>
       </header>
 
